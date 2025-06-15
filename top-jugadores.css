@@ -1,0 +1,282 @@
+/* ==========================================================================
+   VARIABLES
+   ========================================================================== */
+:root {
+  --orange:       #e67e22;
+  --orange-dark:  #cf711b;
+  --white:        #ffffff;
+  --gray-light:   #f5f5f5;
+  --gray-lighter: #fafafa;
+  --gray-dark:    #333333;
+  --shadow:       rgba(0,0,0,0.1);
+  --speed:        0.3s ease-out;
+}
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: var(--gray-light);
+  color: var(--gray-dark);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+header {
+  background: var(--orange);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px var(--shadow);
+  animation: fadeInDown var(--speed);
+}
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+header nav a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background var(--speed), transform var(--speed);
+}
+header nav a:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+header nav a.active {
+  background: rgba(255,255,255,0.3);
+}
+header h1 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   COMMON CONTAINER
+   ========================================================================== */
+main, section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  animation: fadeInUp var(--speed);
+}
+
+/* ==========================================================================
+   COMPARE.HTML SPECIFIC
+   ========================================================================== */
+.compare-header {
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+.compare-header nav {
+  order: 1;
+}
+.compare-header h1 {
+  order: 2;
+  margin-top: 0.5rem;
+}
+.compare-form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  animation: fadeInUp var(--speed);
+}
+.compare-form input {
+  flex: 1 1 200px;
+  padding: 0.6rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color var(--speed);
+}
+.compare-form input:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background var(--speed);
+}
+.btn-primary:hover {
+  background: var(--orange-dark);
+}
+.profiles-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.profile-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex: 1 1 200px;
+  animation: fadeInUp var(--speed);
+}
+.profile-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--orange);
+  margin-bottom: 0.5rem;
+}
+.profile-card .nickname {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+.profile-card .summary {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  animation: fadeInUp var(--speed);
+}
+.compare-table th,
+.compare-table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
+.compare-table th {
+  background: var(--gray-lighter);
+  font-weight: 600;
+}
+.compare-table td.better {
+  background: #d4edda;
+  color: #155724;
+}
+.compare-table td.worse {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* ==========================================================================
+   WINNER MODAL
+   ========================================================================== */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 200;
+}
+.modal.show {
+  display: flex;
+}
+.modal-content {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeInUp var(--speed);
+}
+.modal-close {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   TOP-JUGADORES.HTML SPECIFIC
+   ========================================================================== */
+.tabla-container {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--shadow);
+  overflow: hidden;
+  animation: fadeInUp var(--speed);
+}
+#tabla-clasificacion {
+  width: 100%;
+  border-collapse: collapse;
+}
+#tabla-clasificacion thead {
+  background: var(--orange);
+}
+#tabla-clasificacion thead th {
+  padding: 0.75rem;
+  color: var(--white);
+  font-weight: 500;
+  text-align: left;
+}
+#tabla-clasificacion tbody tr:nth-child(odd) {
+  background: var(--gray-lighter);
+}
+#tabla-clasificacion tbody tr:nth-child(even) {
+  background: var(--white);
+}
+#tabla-clasificacion td {
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+}
+#tabla-clasificacion td:first-child {
+  font-weight: 600;
+  color: #555;
+  width: 3rem;
+}
+#tabla-clasificacion td:nth-child(3) {
+  text-align: right;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  header { flex-direction: column; align-items: flex-start; }
+  header nav { margin-top: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
+}
+@media (max-width: 480px) {
+  .compare-form { flex-direction: column; }
+  .stats-grid { grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FACEIT Stats CS2</title>
+  <!--Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+  <!--Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+     <a href="index.html">Inicio</a>
+      <a href="compare.html">Comparación de Jugadores</a>
+      <a href="clasificacion.html" class="active">Clasificación</a>
+      <a href="top-jugadores.html">Top Jugadores</a>
+    </nav>
+    <h1>FACEIT Stats CS2</h1>
+    <form id="statsForm">
+      <input
+        id="nickInput"
+        type="text"
+        placeholder="Tu nickname FACEIT (ej. ropz)"
+        required
+      />
+      <button type="submit">Cargar estadísticas</button>
+    </form>
+  </header>
+
+  <section id="profileSection" class="hidden">
+    <div id="profileInfo"></div>
+    <hr>
+    <h2>Estadísticas Principales</h2>
+    <div id="mainStats" class="stats-grid"></div>
+    <h2>Otras Estadísticas</h2>
+    <div id="otherStats" class="stats-grid"></div>
+  </section>
+
+  <section id="chartsSection" class="hidden">
+    <h2>K/D Ratio Promedio por Mapa</h2>
+    <div class="chart-container">
+      <canvas id="kdChart"></canvas>
+    </div>
+  </section>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

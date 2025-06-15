@@ -1,0 +1,14 @@
+{
+  "name": "faceit-stats-cs2",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "chart.js": "^4.3.0"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0"
+  }
+}
