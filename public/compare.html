@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Comparativa FACEIT CS2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ 
+  <header class="compare-header">
+    <nav>
+     <a href="index.html">Inicio</a>
+      <a href="analisis_jugador.html">Análisis de jugadores</a>
+      <a href="clasificacion.html" class="active">Clasificación</a>
+      <a href="top-jugadores.html">Top Jugadores</a>
+   </nav>
+    <h1>Comparativa FACEIT CS2</h1>
+    <form id="compareForm" class="compare-form">
+      <input type="text" id="nickA" placeholder="Jugador A " required>
+      <input type="text" id="nickB" placeholder="Jugador B " required>
+      <button type="submit" class="btn-primary">Comparar</button>
+    </form>
+  </header>
+
+  <main id="compareSection" class="hidden">
+    <div class="profiles-container">
+      <div id="cardA" class="profile-card"></div>
+      <div id="cardB" class="profile-card"></div>
+    </div>
+
+    <table id="compareTable" class="compare-table">
+      <thead>
+        <tr><th>Métrica</th><th>Jugador A</th><th>Jugador B</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <div id="winnerModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="modalClose" class="modal-close">&times;</span>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="compare.js"></script>
+</body>
+</html>
